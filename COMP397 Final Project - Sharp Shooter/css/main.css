@@ -1,0 +1,37 @@
+﻿/*----------------------------------------------------------------------------------------------------------
++++ Source File: COMP397 Final Project - Sharp Shooter Scrolling Game
++++ Author: Teleisha Hall
++++ ID: 300820822 
++++ Last Modified By: Teleisha Hall 
++++ Date Last Modified - August 1, 2015
++++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
++++ Version: 1
++++ Revision History: 
+-----------------------------------------------------------------------------------------------------------*/
+
+/* set page background */
+body {
+    background-color: blanchedalmond;
+}
+
+/* align header in the center of the page */
+#header {
+	text-align: center;
+}
+
+/* set size of wrapper and align in the center of the page */
+#wrapper {
+	width: 640px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+/* add footer to page */
+#footer {
+    margin-bottom: 1px;
+    padding: 1px;
+    color: #000000;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+	text-align: center;   
+}
