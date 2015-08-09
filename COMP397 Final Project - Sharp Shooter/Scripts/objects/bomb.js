@@ -1,0 +1,51 @@
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
+/*----------------------------------------------------------------------------------------------------------
++++ Source File: COMP397 Final Project - Sharp Shooter Scrolling Game
++++ Author: Teleisha Hall
++++ ID: 300820822
++++ Last Modified By: Teleisha Hall
++++ Date Last Modified - August 8, 2015
++++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
++++ Version: 2
++++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
+-----------------------------------------------------------------------------------------------------------*/
+var objects;
+(function (objects) {
+    // Bomb Class +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var Bomb = (function (_super) {
+        __extends(Bomb, _super);
+        // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        function Bomb(imageString) {
+            _super.call(this, imageString);
+            this.name = "bomb";
+            //this.sound = "blast";
+            this.reset();
+        }
+        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        Bomb.prototype.checkBounds = function () {
+            /// check if bomb has left screen
+            if (this.x < 0 - this.width)
+                this.reset();
+        };
+        Bomb.prototype.reset = function () {
+            this.x = 640; // start bomb from right of stage
+            this.y = Math.floor(Math.random() * 480); // start bomb at random location on stage
+            this.dx = Math.floor(Math.random() * 5) + 5;
+            this.dy = Math.floor(Math.random() * 4) - 2;
+        };
+        // PUBLIC METHOD ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        Bomb.prototype.update = function () {
+            this.x += -this.dx; // move bomb across the stage from right to left
+            this.y += this.dy; // drift bomb up and down
+            this.checkBounds();
+        };
+        return Bomb;
+    })(objects.GameObject);
+    objects.Bomb = Bomb;
+})(objects || (objects = {}));
+//# sourceMappingURL=bomb.js.map

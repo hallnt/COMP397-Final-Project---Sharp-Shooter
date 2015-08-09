@@ -8,30 +8,9 @@
 +++ Version: 2
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
-
-/* set page background */
-body {
-    background-color: blanchedalmond;
-}
-
-/* align header in the center of the page */
-#header {
-	text-align: center;
-}
-
-/* set size of wrapper and align in the center of the page */
-#wrapper {
-	width: 640px;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-/* add footer to page */
-#footer {
-    margin-bottom: 1px;
-    padding: 1px;
-    color: #000000;  
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: smaller;
-	text-align: center;   
+module state_constants {
+    // STATE CONSTANTS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    export var START_STATE: number = 0;
+    export var GAME_LEVEL1_STATE: number = 1;
+    export var GAMEOVER_STATE: number = 2;
 }

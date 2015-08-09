@@ -4,13 +4,13 @@
 <!-- Author: Teleisha Hall-->
 <!-- ID: 300820822 -->
 <!-- Last Modified By: Teleisha Hall -->
-<!-- Date Last Modified - August 1, 2015 -->
+<!-- Date Last Modified - August 8, 2015 -->
 <!-- Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework -->
-<!-- Version: 1 -->
-<!-- Revision History: -->
+<!-- Version: 2 -->
+<!-- Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master -->
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale= 1.0, maximum-scale=1.0, minimal-ui" />
     <title> Sharp Shooter </title>
     <!-- CSS SECTION -->
     <link href="css/main.css" rel="stylesheet" />
@@ -27,14 +27,28 @@
         <canvas id="canvas" width="640" height="480"></canvas>
 
         <!-- JAVASCRIPT SECTION -->
-        <script src="Scripts/lib/Stats.js"></script>
         <script src="Scripts/lib/easeljs-0.8.0.min.js"></script>
         <script src="Scripts/lib/tweenjs-0.6.0.min.js"></script>
         <script src="Scripts/lib/soundjs-0.6.0.min.js"></script>
         <script src="Scripts/lib/preloadjs-0.6.0.min.js"></script>
 
         <!-- GAME OBJECTS -->
-        
+        <script src="Scripts/utility/utility.js"></script>
+        <script src="Scripts/utility/state_constants.js"></script>
+
+        <script src="Scripts/objects/button.js"></script>
+        <script src="Scripts/objects/gameobject.js"></script>
+        <script src="Scripts/objects/grass.js"></script>
+        <script src="Scripts/objects/monkey.js"></script>
+        <script src="Scripts/objects/coin.js"></script>
+        <script src="Scripts/objects/bomb.js"></script>
+        <script src="Scripts/objects/scoreboard.js"></script>
+
+        <script src="Scripts/managers/collision.js"></script>
+
+        <script src="Scripts/states/startMenu.js"></script>
+        <script src="Scripts/states/gameplay_level1.js"></script>
+        <script src="Scripts/states/gameover.js"></script>
 
         <!-- GAME SCRIPT -->
         <script src="Scripts/game.js"></script>
