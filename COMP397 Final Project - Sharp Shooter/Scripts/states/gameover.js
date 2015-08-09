@@ -32,8 +32,8 @@ var states;
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         GameOver.prototype.update = function () {
-            grass.update(); // update scrolling background
-            stage.update(); // update stage
+            grass.update();
+            stage.update();
         };
         GameOver.prototype.main = function () {
             // add grass object to the stage
@@ -58,6 +58,7 @@ var states;
             stage.addChild(quitGameButton);
             quitGameButton.on("click", this.quitGameButtonClicked); // add mouse click event to betmax button
             // play sound clip
+            createjs.Sound.removeSound("soundtrack");
             createjs.Sound.play("gameover");
         };
         return GameOver;

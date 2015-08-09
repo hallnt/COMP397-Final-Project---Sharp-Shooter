@@ -20,7 +20,7 @@ var states;
         // call-back method that responds to play button clicked event
         StartMenu.prototype.startButtonClicked = function (event) {
             // remove sound and objects from the stage
-            //createjs.Sound.removeSound("soundtrack");
+            //createjs.Sound.removeSound("intro");
             stage.removeAllChildren();
             stage.removeAllEventListeners();
             changeGameState(state_constants.GAME_LEVEL1_STATE);
@@ -28,26 +28,25 @@ var states;
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // update method
         StartMenu.prototype.update = function () {
-            stage.update(); // update stage
+            // update game variables      
+            grass.update();
+            monkey.update();
+            stage.update();
         };
         // main method
         StartMenu.prototype.main = function () {
-            // add instructions image to the stage
-            /*instructions = new createjs.Bitmap(assets.getResult("instructions"));
-            instructions.x = 70;
-            stage.addChild(instructions);
-
-            // add fish object to the stage
-            fish2 = new createjs.Bitmap(assets.getResult("fish"));
-            fish2.x = 450;
-            fish2.y = 240;
-            stage.addChild(fish2); */
+            // add grass object to the stage
+            grass = new objects.Grass(assets.getResult("grass"));
+            stage.addChild(grass);
             // add start button to the stage
             startButton = new objects.Button(assets.getResult("startButton"), 320, 345);
             stage.addChild(startButton);
             startButton.on("click", this.startButtonClicked); // add mouse click event to start button
+            // add monkey object to the stage
+            monkey = new objects.Monkey(assets.getResult("monkey"));
+            stage.addChild(monkey);
             // play sound clip
-            //createjs.Sound.play("soundtrack");
+            //createjs.Sound.play("intro");
         };
         return StartMenu;
     })();

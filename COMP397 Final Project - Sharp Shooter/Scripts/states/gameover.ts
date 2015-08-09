@@ -41,15 +41,15 @@ module states {
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         public update(): void {
-            grass.update(); // update scrolling background
-            stage.update(); // update stage
+            grass.update();
+            stage.update(); 
         }
 
-        public main(): void {    
+        public main(): void {      
             // add grass object to the stage
             grass = new objects.Grass(assets.getResult("grass"));
             stage.addChild(grass);
-            
+                          
             // add gameover label to the stage
             this.gameoverLabel = new createjs.Text("GAME OVER!", "50px Consolas", "#ee5b11");
             this.gameoverLabel.x = 190;
@@ -73,6 +73,7 @@ module states {
             quitGameButton.on("click", this.quitGameButtonClicked);  // add mouse click event to betmax button
             
             // play sound clip
+            createjs.Sound.removeSound("soundtrack");
             createjs.Sound.play("gameover");
         }
     }

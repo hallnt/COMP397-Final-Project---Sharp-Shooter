@@ -59,6 +59,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\firestone.mp3" />
+    <Content Include="assets\audio\intro.mp3" />
+    <Content Include="assets\images\darkJungle.png" />
+    <Content Include="assets\images\fire.png" />
+    <Content Include="assets\images\grass.png" />
+    <Content Include="assets\images\mountain.jpg" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -71,7 +77,6 @@
     <Content Include="assets\audio\Game Over.mp3" />
     <Content Include="assets\images\bomb.png" />
     <Content Include="assets\images\coin.png" />
-    <Content Include="assets\images\grass.jpg" />
     <Content Include="assets\images\logo.PNG" />
     <Content Include="assets\images\monkey.png" />
     <Content Include="assets\images\playAgainButton.png" />
@@ -82,7 +87,6 @@
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\soundjs-0.6.0.min.js" />
-    <Content Include="Scripts\lib\Stats.js" />
     <Content Include="Scripts\lib\tweenjs-0.6.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -98,18 +102,21 @@
     <TypeScriptCompile Include="Scripts\objects\bomb.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\coin.ts" />
+    <TypeScriptCompile Include="Scripts\objects\fire.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
     <TypeScriptCompile Include="Scripts\objects\grass.ts" />
     <TypeScriptCompile Include="Scripts\objects\monkey.ts" />
+    <TypeScriptCompile Include="Scripts\objects\mountain.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
     <TypeScriptCompile Include="Scripts\states\gameplay_level1.ts" />
+    <TypeScriptCompile Include="Scripts\states\gameplay_level2.ts" />
+    <TypeScriptCompile Include="Scripts\states\gameplay_level3.ts" />
     <TypeScriptCompile Include="Scripts\states\startMenu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\stats\stats.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
     <TypeScriptCompile Include="Scripts\utility\state_constants.ts" />
     <TypeScriptCompile Include="Scripts\utility\utility.ts" />

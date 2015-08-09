@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 9, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 3
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 /// <reference path="typings/easeljs/easeljs.d.ts" />
@@ -19,6 +19,7 @@
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/grass.ts" />
+/// <reference path="objects/mountain.ts" />
 /// <reference path="objects/monkey.ts" />
 /// <reference path="objects/coin.ts" />
 /// <reference path="objects/bomb.ts" />
@@ -29,6 +30,8 @@
 
 /// <reference path="states/startmenu.ts" />
 /// <reference path="states/gameplay_level1.ts" />
+/// <reference path="states/gameplay_level2.ts" />
+/// <reference path="states/gameplay_level3.ts" />
 /// <reference path="states/gameover.ts" />
 /*---------------------------------------------------------------------------------------------------------*/
 
@@ -42,18 +45,25 @@ var manifest = [
     { id: "startButton", src: "assets/images/start_game_button.jpg" },
     { id: "playAgainButton", src: "assets/images/playAgainButton.png" },
     { id: "quitGameButton", src: "assets/images/quitGameButton.png" },
-    { id: "grass", src: "assets/images/grass.jpg" },
+    { id: "grass", src: "assets/images/grass.png" },
+    { id: "mountain", src: "assets/images/mountain.jpg" },
+    { id: "jungle", src: "assets/images/darkJungle.png" },
     { id: "monkey", src: "assets/images/monkey.png" },
     { id: "coin", src: "assets/images/coin.png" },
     { id: "bomb", src: "assets/images/bomb.png" },
+    { id: "fire", src: "assets/images/fire.png" },
+    { id: "intro", src: "assets/audio/intro.mp3" },
+    { id: "soundtrack", src: "assets/audio/firestone.mp3" },
     { id: "gameover", src: "assets/audio/Game Over.mp3" }
 ]; 
 
 // GAME VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var grass: objects.Grass;
+var mountain: objects.Mountain;
 var monkey: objects.Monkey;
 var coin: objects.Coin;
 var bombs: objects.Bomb[] = [];
+var fire: objects.Fire;
 
 var scoreboard: objects.ScoreBoard;
 
@@ -68,12 +78,10 @@ var collision: managers.Collision;
 // GAME STATES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var startMenu: states.StartMenu;
 var gameplay_level1: states.GamePlayLevel1;
+var gameplay_level2: states.GamePlayLevel2;
+var gameplay_level3: states.GamePlayLevel3;
 var gameOver: states.GameOver;
 var presentState;
-
-// START SCREEN VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    //var instructions: createjs.Bitmap;
-    //var fish2: createjs.Bitmap;
 /*---------------------------------------------------------------------------------------------------------*/
 
 // PRELOADER FUNCTION +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -117,8 +125,18 @@ function changeGameState(state: number): void {
             break;
 
         case state_constants.GAME_LEVEL1_STATE:
-            gameplay_level1 = new states.GamePlayLevel1();   // instantiate gamePlay state            
+            gameplay_level1 = new states.GamePlayLevel1();   // instantiate gameplay_Level1 state            
             presentState = gameplay_level1;        // make present state the gameplay_level1 state
+            break;
+
+        case state_constants.GAME_LEVEL2_STATE:
+            gameplay_level2 = new states.GamePlayLevel2();   // instantiate gameplay_Level2 state            
+            presentState = gameplay_level2;        // make present state the gameplay_Level2 state
+            break;
+
+        case state_constants.GAME_LEVEL3_STATE:
+            gameplay_level3 = new states.GamePlayLevel3();   // instantiate gameplay_level3 state            
+            presentState = gameplay_level3;        // make present state the gameplay_level3 state
             break;
 
         case state_constants.GAMEOVER_STATE:

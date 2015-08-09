@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 9, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 3
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 module objects {
@@ -29,7 +29,7 @@ module objects {
         private checkBounds(): void {
 
             /// check if grass has left screen
-            if (this.x == -640) {
+            if (this.x == -1280) {
                 this.reset();
             }
         }

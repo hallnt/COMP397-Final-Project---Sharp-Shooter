@@ -31,12 +31,19 @@ var managers;
                         scoreboard.lives--;
                         // game over
                         if (scoreboard.lives < 0) {
+                            stage.removeAllChildren();
                             // change to gameOver state
                             changeGameState(state_constants.GAMEOVER_STATE);
                         }
                     }
                     if (gameObject.name == "coin") {
                         scoreboard.score += 100;
+                        // move up to leve; 2
+                        if (scoreboard.score >= 1000) {
+                            stage.removeAllChildren();
+                            // change to gameplay_level 2 state
+                            changeGameState(state_constants.GAME_LEVEL2_STATE);
+                        }
                     }
                 }
                 gameObject.isColliding = true;
