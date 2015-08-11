@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 11, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 4
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 module objects { 
@@ -20,22 +20,17 @@ module objects {
         
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
-            this.livesLabel = new createjs.Text("Lives:", "35px Consolas", "#00FF21");
-            this.scoreLabel = new createjs.Text("Score:", "35px Consolas", "#00FF21");
-            this.scoreLabel.x = 350; // position of score label on the screen         
-            stage.addChild(this.livesLabel); // add lives label to the stage
-            stage.addChild(this.scoreLabel); // add score label to the sctage
+            this.livesLabel = new createjs.Text("Lives:", "25px Consolas", "#ffffff");
+            this.scoreLabel = new createjs.Text("Score:", "25px Consolas", "#ffffff");
+            this.scoreLabel.x = 480; // position of score label on the screen         
+            game.addChild(this.livesLabel); // add lives label to game container
+            game.addChild(this.scoreLabel); // add score label to game container
         }
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public update() {
             this.livesLabel.text = "Lives: " + this.lives;
             this.scoreLabel.text = "Score: " + this.score;
-
-            if (gameplay_level2) {
-                this.score = 1100;
-                this.scoreLabel.text = "Score: " + this.score;
-            }
         }
     }
 }

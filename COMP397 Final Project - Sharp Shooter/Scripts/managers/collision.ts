@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 11, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 4
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 module managers {
@@ -20,7 +20,7 @@ module managers {
         public check(gameObject: objects.GameObject) {
             var p1: createjs.Point = new createjs.Point;
             var p2: createjs.Point = new createjs.Point;
-
+            
             p1.x = monkey.x;
             p1.y = monkey.y;
 
@@ -29,27 +29,22 @@ module managers {
 
             if (utility.distance(p1, p2) < ((monkey.height * 0.5) + (gameObject.height * 0.5))) {
                 if (gameObject.isColliding == false) {
-                    //createjs.Sound.play(gameObject.sound);
+                    createjs.Sound.play(gameObject.sound);
                     
-                    if (gameObject.name == "bomb") {
-                        scoreboard.lives--; 
+                    if (gameObject.name == "bomb" || gameObject.name == "arrow") {                        
+                        scoreboard.lives--;     // decrease life when monkey collides with bomb or arrow
 
                         // game over
                         if (scoreboard.lives < 0) {
-                            stage.removeAllChildren();
                             // change to gameOver state
-                            changeGameState(state_constants.GAMEOVER_STATE);
+                            changeGameState(config.GAMEOVER_STATE);
                         }
                     }
                     if (gameObject.name == "coin") {
-                        scoreboard.score += 100;
-
-                        // move up to leve; 2
-                        if (scoreboard.score >= 1000) {
-                            stage.removeAllChildren();
-                            // change to gameplay_level 2 state
-                            changeGameState(state_constants.GAME_LEVEL2_STATE);
-                        }
+                        scoreboard.score += 100;    // add 100 points for each coin monkey collides with                    
+                    }
+                    if (gameObject.name == "banana") {
+                        scoreboard.score += 200;    // add 200 points for each banana monkey collides with                    
                     }
                 }
                 gameObject.isColliding = true;

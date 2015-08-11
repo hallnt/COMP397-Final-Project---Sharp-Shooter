@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 11, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 4
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 module objects {
@@ -16,10 +16,11 @@ module objects {
         constructor(imageString: string) {
             super(imageString);
 
-            //this.sound = "splash";
+            this.sound = "soundtrack";
             this.x = 70;
 
-            //createjs.Sound.play(this.sound, { "loop": -1 });
+            // play and repeat sound
+            createjs.Sound.play(this.sound, { "loop": -1 });
         }
 
         // PUBLIC METHOD ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

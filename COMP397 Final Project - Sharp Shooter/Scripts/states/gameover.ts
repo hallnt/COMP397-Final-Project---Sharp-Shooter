@@ -3,31 +3,38 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822 
 +++ Last Modified By: Teleisha Hall 
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 11, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework 
-+++ Version: 2
++++ Version: 4
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 module states { 
     // GameOver Class ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     export class GameOver {
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        public gameoverLabel: createjs.Text;
+        public gameOutcomeLabel: createjs.Text;
         public yourScoreLabel: createjs.Text;
         
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        constructor() {
+        constructor() {  
+            // instantiate game outcome label
+            this.gameOutcomeLabel = new createjs.Text("GAME OVER!", "50px Consolas", "#ee5b11");
+            this.gameOutcomeLabel.x = 175;
+            this.gameOutcomeLabel.y = 100;
+                               
+            // instantiate yourScore label
+            this.yourScoreLabel = new createjs.Text("Your Score: " + scoreboard.score, "35px Consolas", "#00FF21");
+            this.yourScoreLabel.x = 160;
+            this.yourScoreLabel.y = 200;
+
             this.main();
         }
 
-        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         //call-back method that responds to playAgain button clicked event
         private playAgainButtonClicked(event: createjs.MouseEvent) {
-            // remove objects from the stage
-            stage.removeAllChildren();
-            stage.removeAllEventListeners();
-            changeGameState(state_constants.GAME_LEVEL1_STATE);
+            changeGameState(config.GAME_LEVEL1_STATE);
         }   
         
         //call-back method that responds to quitGame button clicked event
@@ -41,41 +48,41 @@ module states {
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         public update(): void {
-            grass.update();
+            // update game objects
+            grass.update();       
             stage.update(); 
         }
 
-        public main(): void {      
-            // add grass object to the stage
-            grass = new objects.Grass(assets.getResult("grass"));
-            stage.addChild(grass);
-                          
-            // add gameover label to the stage
-            this.gameoverLabel = new createjs.Text("GAME OVER!", "50px Consolas", "#ee5b11");
-            this.gameoverLabel.x = 190;
-            this.gameoverLabel.y = 100;
-            stage.addChild(this.gameoverLabel);
-
-            // add your score label to the stage
-            this.yourScoreLabel = new createjs.Text("Your Score: " + scoreboard.score, "35px Consolas", "#00FF21");
-            this.yourScoreLabel.x = 175;
-            this.yourScoreLabel.y = 200;
-            stage.addChild(this.yourScoreLabel);     
+        public main(): void { 
+            // instantiate game container
+            game = new createjs.Container();
+                 
+            // add grass object to game container
+            grass = new objects.Grass(assets.loader.getResult("grass"));
+            game.addChild(grass);
+                       
+            // add gameOutcome label to game container
+            game.addChild(this.gameOutcomeLabel);    
+               
+            // add your score label to game container
+            game.addChild(this.yourScoreLabel);     
             
             // add play again button to the stage
-            playAgainButton = new objects.Button(assets.getResult("playAgainButton"), 215, 360);
-            stage.addChild(playAgainButton);
-            playAgainButton.on("click", this.playAgainButtonClicked);  // add mouse click event to betmax button
+            playAgainButton = new objects.Button(assets.loader.getResult("playAgainButton"), 215, 360);
+            game.addChild(playAgainButton);
+            playAgainButton.on("click", this.playAgainButtonClicked);  // add mouse click event to play again button
 
-            // add quit game button to the stage
-            quitGameButton = new objects.Button(assets.getResult("quitGameButton"), 410, 360);
-            stage.addChild(quitGameButton);
-            quitGameButton.on("click", this.quitGameButtonClicked);  // add mouse click event to betmax button
+            // add quit game button to game container
+            quitGameButton = new objects.Button(assets.loader.getResult("quitGameButton"), 410, 360);
+            game.addChild(quitGameButton);
+            quitGameButton.on("click", this.quitGameButtonClicked);  // add mouse click event to quit game button
             
             // play sound clip
-            createjs.Sound.removeSound("soundtrack");
             createjs.Sound.play("gameover");
-        }
+
+            // add game container to stage
+            stage.addChild(game);
+        }        
     }
 }
  

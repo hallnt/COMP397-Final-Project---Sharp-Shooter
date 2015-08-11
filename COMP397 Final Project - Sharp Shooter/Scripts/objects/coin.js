@@ -9,9 +9,9 @@ var __extends = this.__extends || function (d, b) {
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 8, 2015
++++ Date Last Modified - August 11, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 2
++++ Version: 4
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 var objects;
@@ -23,7 +23,7 @@ var objects;
         function Coin(imageString) {
             _super.call(this, imageString);
             this.name = "coin";
-            //this.sound = "bite";
+            this.sound = "points";
             this.dx = 5;
             this.reset();
         }
@@ -39,7 +39,7 @@ var objects;
         };
         // PUBLIC METHOD ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         Coin.prototype.update = function () {
-            this.x += -this.dx; // moves coin across the stage from right to left
+            this.x -= this.dx; // moves coin across the stage from right to left
             this.checkBounds();
         };
         return Coin;

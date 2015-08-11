@@ -59,12 +59,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\bite.wav" />
+    <Content Include="assets\audio\lean on.mp3" />
+    <Content Include="assets\audio\shot.wav" />
+    <Content Include="assets\images\arrow.png" />
+    <Content Include="assets\audio\blast.wav" />
+    <Content Include="assets\audio\cheer.wav" />
     <Content Include="assets\audio\firestone.mp3" />
-    <Content Include="assets\audio\intro.mp3" />
-    <Content Include="assets\images\darkJungle.png" />
+    <Content Include="assets\audio\points.wav" />
+    <Content Include="assets\images\back_button.png" />
+    <Content Include="assets\images\banana.png" />
+    <Content Include="assets\images\Banana_Peel.png" />
     <Content Include="assets\images\fire.png" />
     <Content Include="assets\images\grass.png" />
+    <Content Include="assets\images\green_background.jpg" />
+    <Content Include="assets\images\instructions_button.png" />
     <Content Include="assets\images\mountain.jpg" />
+    <Content Include="assets\images\nightTropics.png" />
+    <Content Include="assets\images\start_game_button.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -81,12 +93,12 @@
     <Content Include="assets\images\monkey.png" />
     <Content Include="assets\images\playAgainButton.png" />
     <Content Include="assets\images\quitGameButton.png" />
-    <Content Include="assets\images\start_game_button.jpg" />
     <Content Include="css\main.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\soundjs-0.6.0.min.js" />
+    <Content Include="Scripts\lib\Stats.js" />
     <Content Include="Scripts\lib\tweenjs-0.6.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -98,7 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game.ts" />
+    <TypeScriptCompile Include="Scripts\managers\asset.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
+    <TypeScriptCompile Include="Scripts\objects\arrow.ts" />
+    <TypeScriptCompile Include="Scripts\objects\banana.ts" />
     <TypeScriptCompile Include="Scripts\objects\bomb.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\coin.ts" />
@@ -108,17 +123,21 @@
     <TypeScriptCompile Include="Scripts\objects\monkey.ts" />
     <TypeScriptCompile Include="Scripts\objects\mountain.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
+    <TypeScriptCompile Include="Scripts\objects\tropics.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
     <TypeScriptCompile Include="Scripts\states\gameplay_level1.ts" />
     <TypeScriptCompile Include="Scripts\states\gameplay_level2.ts" />
     <TypeScriptCompile Include="Scripts\states\gameplay_level3.ts" />
+    <TypeScriptCompile Include="Scripts\states\instructions.ts" />
+    <TypeScriptCompile Include="Scripts\states\playerWins.ts" />
     <TypeScriptCompile Include="Scripts\states\startMenu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\stats\stats.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\utility\state_constants.ts" />
+    <TypeScriptCompile Include="Scripts\utility\config.ts" />
     <TypeScriptCompile Include="Scripts\utility\utility.ts" />
   </ItemGroup>
   <PropertyGroup>

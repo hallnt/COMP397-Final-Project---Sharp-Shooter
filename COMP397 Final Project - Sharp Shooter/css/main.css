@@ -11,7 +11,8 @@
 
 /* set page background */
 body {
-    background-color: blanchedalmond;
+    background-image: url('../assets/images/green_background.jpg');
+    background-repeat: no-repeat;
 }
 
 /* align header in the center of the page */

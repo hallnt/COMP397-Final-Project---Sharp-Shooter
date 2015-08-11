@@ -4,9 +4,9 @@
 <!-- Author: Teleisha Hall-->
 <!-- ID: 300820822 -->
 <!-- Last Modified By: Teleisha Hall -->
-<!-- Date Last Modified - August 9, 2015 -->
+<!-- Date Last Modified - August 11, 2015 -->
 <!-- Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework -->
-<!-- Version: 3 -->
+<!-- Version: 4 -->
 <!-- Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master -->
 <head>
     <meta charset="utf-8" />
@@ -27,6 +27,7 @@
         <canvas id="canvas" width="640" height="480"></canvas>
 
         <!-- JAVASCRIPT SECTION -->
+        <script src="Scripts/lib/Stats.js"></script>
         <script src="Scripts/lib/easeljs-0.8.0.min.js"></script>
         <script src="Scripts/lib/tweenjs-0.6.0.min.js"></script>
         <script src="Scripts/lib/soundjs-0.6.0.min.js"></script>
@@ -34,24 +35,31 @@
 
         <!-- GAME OBJECTS -->
         <script src="Scripts/utility/utility.js"></script>
-        <script src="Scripts/utility/state_constants.js"></script>
+        <script src="Scripts/utility/config.js"></script>
+
+        <script src="Scripts/managers/asset.js"></script>
 
         <script src="Scripts/objects/button.js"></script>
         <script src="Scripts/objects/gameobject.js"></script>
         <script src="Scripts/objects/grass.js"></script>
         <script src="Scripts/objects/mountain.js"></script>
+        <script src="Scripts/objects/tropics.js"></script>
         <script src="Scripts/objects/monkey.js"></script>
         <script src="Scripts/objects/coin.js"></script>
+        <script src="Scripts/objects/banana.js"></script>
         <script src="Scripts/objects/bomb.js"></script>
+        <script src="Scripts/objects/arrow.js"></script>
         <script src="Scripts/objects/scoreboard.js"></script>
 
         <script src="Scripts/managers/collision.js"></script>
 
         <script src="Scripts/states/startMenu.js"></script>
+        <script src="Scripts/states/instructions.js"></script>
         <script src="Scripts/states/gameplay_level1.js"></script>
         <script src="Scripts/states/gameplay_level2.js"></script>
         <script src="Scripts/states/gameplay_level3.js"></script>
         <script src="Scripts/states/gameover.js"></script>
+        <script src="Scripts/states/playerWins.js"></script>
 
         <!-- GAME SCRIPT -->
         <script src="Scripts/game.js"></script>
