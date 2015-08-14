@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 9, 2015
++++ Date Last Modified - August 14, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 4
++++ Version: 5
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 /// <reference path="typings/stats/stats.d.ts" />
@@ -29,13 +29,13 @@
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="states/startmenu.ts" />
+/// <reference path="states/gamelevels.ts" />
 /// <reference path="states/instructions.ts" />
 /// <reference path="states/gameplay_level1.ts" />
 /// <reference path="states/gameplay_level2.ts" />
 /// <reference path="states/gameplay_level3.ts" />
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/playerwins.ts" />
-/// <reference path="objects/banana.ts" />
 /*---------------------------------------------------------------------------------------------------------*/
 // GAME FRAMEWORK VARIABLES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var canvas = document.getElementById("canvas");
@@ -51,11 +51,14 @@ var coin;
 var banana;
 var bombs = [];
 var arrows = [];
-var fire;
 var scoreboard;
+var instructionsText;
 // GAME BUTTONS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var instructionsButton;
-var startButton;
+var levelsButton;
+var easyButton;
+var mediumButton;
+var hardButton;
 var backButton;
 var playAgainButton;
 var quitGameButton;
@@ -65,6 +68,7 @@ var collision;
 // GAME STATES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var startMenu;
 var instructions;
+var game_levels;
 var gameplay_level1;
 var gameplay_level2;
 var gameplay_level3;
@@ -115,11 +119,16 @@ function changeGameState(state) {
     // switch between game states
     switch (state) {
         case config.START_MENU_STATE:
+            startMenu = new states.StartMenu(); // instantiate startMenu state
             currentState = startMenu; // make current state the startMenu state
+            break;
+        case config.GAME_LEVELS_STATE:
+            game_levels = new states.GameLevels(); // instantiate game_levels state
+            currentState = game_levels; // make current state the game_levels state
             break;
         case config.INSTRUCTIONS_STATE:
             instructions = new states.Instructions(); // instantiate instructions state
-            currentState = instructions; // make current state the instructions statee
+            currentState = instructions; // make current state the instructions state
             break;
         case config.GAME_LEVEL1_STATE:
             gameplay_level1 = new states.GamePlayLevel1(); // instantiate gameplay_Level1 state            

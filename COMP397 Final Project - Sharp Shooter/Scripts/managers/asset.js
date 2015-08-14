@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 11, 2015
++++ Date Last Modified - August 14, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 4
++++ Version: 5
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 var managers;
@@ -17,10 +17,14 @@ var managers;
             // PRIVATE PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             this.manifest = [
                 { id: "instructionsButton", src: "assets/images/instructions_button.png" },
-                { id: "startButton", src: "assets/images/start_game_button.png" },
+                { id: "levelsButton", src: "assets/images/levelbutton.png" },
+                { id: "easyButton", src: "assets/images/easybutton.png" },
+                { id: "mediumButton", src: "assets/images/mediumbutton.png" },
+                { id: "hardButton", src: "assets/images/hardbutton.png" },
                 { id: "backButton", src: "assets/images/back_button.png" },
                 { id: "playAgainButton", src: "assets/images/playAgainButton.png" },
                 { id: "quitGameButton", src: "assets/images/quitGameButton.png" },
+                { id: "instructionsText", src: "assets/images/instructions.jpg" },
                 { id: "grass", src: "assets/images/grass.png" },
                 { id: "mountain", src: "assets/images/mountain.jpg" },
                 { id: "tropics", src: "assets/images/nightTropics.png" },

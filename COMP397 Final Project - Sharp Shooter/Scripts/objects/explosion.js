@@ -16,23 +16,21 @@ var __extends = this.__extends || function (d, b) {
 -----------------------------------------------------------------------------------------------------------*/
 var objects;
 (function (objects) {
-    // Monkey Class +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    var Monkey = (function (_super) {
-        __extends(Monkey, _super);
-        // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        function Monkey(imageString) {
-            _super.call(this, imageString);
-            this.sound = "soundtrack";
-            this.x = 70;
-            // play and repeat sound
-            createjs.Sound.play(this.sound, { "loop": -1 });
+    // Explosion Class ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    var Explosion = (function (_super) {
+        __extends(Explosion, _super);
+        // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        function Explosion(game) {
+            _super.call(this, "bigexplosion");
+            this.game = game;
+            this.game.addChild(this);
         }
-        // PUBLIC METHOD ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        Monkey.prototype.update = function () {
-            this.y = stage.mouseY; // position monkey under mouse
+        // method to remove game object
+        Explosion.prototype.remove = function () {
+            this.game.removeChild(this);
         };
-        return Monkey;
+        return Explosion;
     })(objects.GameObject);
-    objects.Monkey = Monkey;
+    objects.Explosion = Explosion;
 })(objects || (objects = {}));
-//# sourceMappingURL=monkey.js.map
+//# sourceMappingURL=explosion.js.map

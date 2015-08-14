@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 11, 2015
++++ Date Last Modified - August 14, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 4
++++ Version: 5
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 var states;
@@ -15,7 +15,10 @@ var states;
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function GamePlayLevel1() {
             this.levelLabel = new createjs.Text("LEVEL 1", "40px Consolas", "#ff6a00");
-            this.levelLabel.x = 220; // position of instructions label on the screen     
+            this.levelLabel.x = 220; // position of instructions label on the screen   
+            this.targetLabel = new createjs.Text("Score 1000 to win!", "20px Consolas", "#ffffff");
+            this.targetLabel.x = 410; // position of target score label on the screen
+            this.targetLabel.y = 450; // position of target score label on the screen    
             this.main();
         }
         // PUBLIC METHODs ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -32,14 +35,14 @@ var states;
             }
             collision.check(coin); // check if collision occurs between the monkey and coin
             collision.check(banana); // check if collision occurs between the monkey and banana
-            // move up to level 2
-            if (scoreboard.score >= 500) {
-                createjs.Sound.removeSound("soundtrack");
+            // check if player reaches winning score            
+            if (scoreboard.score >= 1000) {
+                createjs.Sound.stop();
+                stage.removeChild(game);
                 game.removeAllChildren();
                 game.removeAllEventListeners();
-                stage.removeAllChildren();
-                // change to gameplay_level 2 state
-                changeGameState(config.GAME_LEVEL2_STATE);
+                // switch to player wins state
+                changeGameState(config.PLAYER_WINS_STATE);
             }
             scoreboard.update(); // update score and lives
             stage.update();
@@ -52,6 +55,8 @@ var states;
             game.addChild(grass);
             // add level label to game container
             game.addChild(this.levelLabel);
+            // add target label to game container
+            game.addChild(this.targetLabel);
             // add coin object to game container
             coin = new objects.Coin(assets.loader.getResult("coin"));
             game.addChild(coin);

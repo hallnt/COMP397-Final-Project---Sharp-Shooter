@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 11, 2015
++++ Date Last Modified - August 14, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 4
++++ Version: 5
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 var states;
@@ -14,7 +14,7 @@ var states;
     var StartMenu = (function () {
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function StartMenu() {
-            this.gameTitleLabel = new createjs.Text("SHARP SHOOTER", "60px Consolas", "#00FF21");
+            this.gameTitleLabel = new createjs.Text("SHARP SHOOTER", "60px Consolas", "#00ff21");
             this.gameTitleLabel.x = 100; // position of instructions label on the screen         
             this.gameTitleLabel.y = 10; // position of instructions label on the screen 
             this.main();
@@ -22,17 +22,20 @@ var states;
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // call-back method that responds to instructions button clicked event
         StartMenu.prototype.instructionsButtonClicked = function (event) {
+            createjs.Sound.stop();
+            stage.removeChild(game);
+            game.removeAllChildren();
+            game.removeAllEventListeners();
             // switch to instructions state
             changeGameState(config.INSTRUCTIONS_STATE);
         };
-        // call-back method that responds to start button clicked event
-        StartMenu.prototype.startButtonClicked = function (event) {
-            createjs.Sound.removeSound("soundtrack");
+        // call-back method that responds to levels button clicked event
+        StartMenu.prototype.levelsButtonClicked = function (event) {
+            stage.removeChild(game);
             game.removeAllChildren();
             game.removeAllEventListeners();
-            stage.removeAllChildren();
             // switch to gameplay level 1 state
-            changeGameState(config.GAME_LEVEL1_STATE);
+            changeGameState(config.GAME_LEVELS_STATE);
         };
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         // update method
@@ -55,13 +58,13 @@ var states;
             // add gameTitle label to game container
             game.addChild(this.gameTitleLabel);
             // add instructions button to game container
-            instructionsButton = new objects.Button(assets.loader.getResult("instructionsButton"), 320, 245);
+            instructionsButton = new objects.Button(assets.loader.getResult("instructionsButton"), 320, 225);
             game.addChild(instructionsButton);
             instructionsButton.on("click", this.instructionsButtonClicked); // add mouse click event to instructions button
-            // add start button to game container
-            startButton = new objects.Button(assets.loader.getResult("startButton"), 320, 345);
-            game.addChild(startButton);
-            startButton.on("click", this.startButtonClicked); // add mouse click event to start button
+            // add levels button to game container
+            levelsButton = new objects.Button(assets.loader.getResult("levelsButton"), 320, 305);
+            game.addChild(levelsButton);
+            levelsButton.on("click", this.levelsButtonClicked); // add mouse click event to levels button
             // add game container to stage
             stage.addChild(game);
         };

@@ -24,10 +24,13 @@ var objects;
             _super.call(this, imageString);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
+            this.name = "fire";
+            this.update();
         }
         // PUBLIC METHOD ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //update method
         Fire.prototype.update = function () {
-            this.x = 70; // moves coin across the stage from right to left
+            this.x = monkey.x;
             this.y = monkey.y;
         };
         return Fire;

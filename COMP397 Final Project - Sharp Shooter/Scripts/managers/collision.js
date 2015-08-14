@@ -3,9 +3,9 @@
 +++ Author: Teleisha Hall
 +++ ID: 300820822
 +++ Last Modified By: Teleisha Hall
-+++ Date Last Modified - August 11, 2015
++++ Date Last Modified - August 14, 2015
 +++ Program Description: A 2D scrolling and shooting arcade web game using the Createjs framework
-+++ Version: 4
++++ Version: 5
 +++ Revision History: https://github.com/hallnt/COMP397-Final-Project---Sharp-Shooter/commits/master
 -----------------------------------------------------------------------------------------------------------*/
 var managers;
@@ -28,18 +28,19 @@ var managers;
                 if (gameObject.isColliding == false) {
                     createjs.Sound.play(gameObject.sound);
                     if (gameObject.name == "bomb" || gameObject.name == "arrow") {
-                        scoreboard.lives--; // decrease life when monkey collides with bomb or arrow
-                        // game over
-                        if (scoreboard.lives < 0) {
-                            // change to gameOver state
-                            changeGameState(config.GAMEOVER_STATE);
-                        }
+                        scoreboard.lives--; // decrease life when monkey collides with bomb or arrow 
+                    }
+                    // game over
+                    if (scoreboard.lives < 0) {
+                        // change to gameOver state
+                        createjs.Sound.stop();
+                        changeGameState(config.GAMEOVER_STATE);
                     }
                     if (gameObject.name == "coin") {
-                        scoreboard.score += 100; // add 100 points for each coin monkey collides with                    
+                        scoreboard.score += 20; // add 100 points for each coin monkey collides with                    
                     }
                     if (gameObject.name == "banana") {
-                        scoreboard.score += 200; // add 200 points for each banana monkey collides with                    
+                        scoreboard.score += 50; // add 200 points for each banana monkey collides with                    
                     }
                 }
                 gameObject.isColliding = true;
